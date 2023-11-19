@@ -1,0 +1,12 @@
+{
+  "short_name": "PWA-mdn-tutorial",
+  "start_url" : "/",
+  "icons": [
+    {
+      "src": "/images/pwa_icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
+}
