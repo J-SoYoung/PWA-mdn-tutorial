@@ -10,6 +10,6 @@
       "type": "image/png"
     }
   ],
-  "background_color": "#eeffee",
+  "background_color": "white",
   "display": "standalone"
 }
