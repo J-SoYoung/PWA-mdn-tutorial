@@ -1,5 +1,7 @@
 {
-  "short_name": "PWA-mdn-tutorial",
+  "name": "PWA-mdn-tutorial : CycleTracker",
+  "short_name": "PWA_CT",
+  "description": "Securely and confidentially track your menstrual cycle. 빼놓지 않고 관리하세요!!!!",
   "start_url" : "/",
   "icons": [
     {
@@ -8,5 +10,6 @@
       "type": "image/png"
     }
   ],
+  "background_color": "#eeffee",
   "display": "standalone"
 }
