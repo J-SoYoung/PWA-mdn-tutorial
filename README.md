@@ -1,6 +1,6 @@
 # pwa_study
 ### [MDN Progressive web app tutorial study](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) 
-📲 https://pwa-mdn-tutorial.netlify.app/<br>
+📲 PWA 배포링크 : https://pwa-mdn-tutorial.netlify.app/<br>
 <br>
 - 기본 HTML과 CSS로 마크업을 시작합니다.
 - PWA를 배포하려면 web의 보안 연결(https)을 통해 파일을 배포해야 한다. <br>
