@@ -6,6 +6,12 @@
     <title>PWA-mdn-tutorial_Cycle Tracker</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="style.css" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        console.log(navigator)
+        navigator.serviceWorker.register("sw.js");
+      }
+    </script>
   </head>
   <body>
     <h1>Period tracker</h1>
@@ -34,12 +40,7 @@
       </ul> -->
     </section>
     <script src="app.js" defer></script>
-    <script>
-      if ("serviceWorker" in navigator) {
-        console.log(navigator)
-        navigator.serviceWorker.register("sw.js");
-      }
-    </script>
+
   </body>
 </html>
 
