@@ -90,11 +90,13 @@ function renderPastPeriods() {
 // 입력받은 생리주기 date의 형태를 만들어주는 함수
 function formatDate(dateString) {
   // Convert the date string to a Date object.
-  const date = new Date(dateString);
+  const date = new Date(dateString)
 
-  // Format the date into a locale-specific string.
-  // include your locale for better user experience
-  return date.toLocaleDateString("en-US", { timeZone: "UTC" });
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${year}-${month}-${day}`;
 } 
 
 // 사용자가 데이터를 입력하지 않아도, 로컬 스코리지에 데이터가 있는 경우 
