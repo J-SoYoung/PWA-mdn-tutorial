@@ -9,20 +9,6 @@ const APP_STATIC_RESOURCES = [
   "/images/pwa_icon.png",
 ];
 
-// 서비스워커 등록
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service_worker.js").then(
-    (registration) => {
-      console.log("Service worker registration successful:", registration);
-    },
-    (error) => {
-      console.error(`Service worker registration failed: ${error}`);
-    },
-  );
-} else {
-  console.error("Service workers are not supported.");
-}
-
 // PWA 설치 시 캐시 저장
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -73,4 +59,3 @@ self.addEventListener("fetch", (event) => {
     })(),
   );
 });
-
