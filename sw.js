@@ -1,15 +1,19 @@
+// The version of the cache.
 const VERSION = "v1";
+
+// The name of the cache
 const CACHE_NAME = `period-tracker-${VERSION}`;
 
+// The static resources that the app needs to function.
 const APP_STATIC_RESOURCES = [
   "/",
   "/index.html",
-  "/styles.css",
   "/app.js",
+  "/styles.css",
   "/images/pwa_icon.png",
 ];
 
-// PWA 설치 시 캐시 저장
+// On install, cache the static resources
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -19,7 +23,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
-// PWA 업데이트 시 오래된 캐시 삭제
+// delete old caches on activate
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
@@ -36,25 +40,25 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// 사용자가 온라인 상태일 때 네트워크 요청 대신 캐시된 응답으로 보내기
+// On fetch, intercept server requests
+// and respond with cached responses instead of going to network
 self.addEventListener("fetch", (event) => {
-  // when seeking an HTML page
-  // Return to the index.html page
+  // As a single page app, direct app to always go to cached home page.
   if (event.request.mode === "navigate") {
     event.respondWith(caches.match("/"));
     return;
   }
 
-  // For every other request type
+  // For all other requests, go to the cache first, and then the network.
   event.respondWith(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-      const cachedResponse = await cache.match(event.request.url);
+      const cachedResponse = await cache.match(event.request);
       if (cachedResponse) {
         // Return the cached response if it's available.
         return cachedResponse;
       }
-      // Respond with a HTTP 404 response status.
+      // If resource isn't in the cache, return a 404.
       return new Response(null, { status: 404 });
     })(),
   );
